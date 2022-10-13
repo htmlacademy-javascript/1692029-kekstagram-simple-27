@@ -1,3 +1,26 @@
+const PHOTOCOUNT = 25;
+const LikesCount = {
+  MIN:15,
+  MAX:200,
+};
+
+const CommentsAmount = {
+  MIN:0,
+  MAX:0,
+};
+
+const descriptions = [
+  'Шикарный вид!!!!',
+  'Просто класс!',
+  'Вау!!!',
+  'Это просто великолепно!',
+  'Ни разу такого не видел!',
+  'Отличное фото.',
+  'Попробуй не "лайкни"!',
+  'Невероятно',
+  'Очень интересно',
+];
+
 function getRandomPositiveInteger(a, b) {
   if (a < 0 || b < 0) {
     return NaN;
@@ -13,5 +36,18 @@ function checkStringLength (string, length) {
   return result;
 }
 
-getRandomPositiveInteger (1, 0);
-checkStringLength ('', 120);
+const getRandomArrayElement = (elements) => elements[getRandomPositiveInteger(0, elements.length - 1)];
+
+const CreatePicture = (index) => ({
+  id: index,
+  url: `photos/${index}.jpg`,
+  description:  getRandomArrayElement(descriptions),
+  likes: getRandomArrayElement(LikesCount.MIN, LikesCount.MAX),
+  comments: getRandomArrayElement(CommentsAmount.MIN, CommentsAmount.MAX),
+});
+
+const getPictures = Array.from({length: PHOTOCOUNT}, CreatePicture);
+
+
+checkStringLength ('', 200);
+getPictures();
