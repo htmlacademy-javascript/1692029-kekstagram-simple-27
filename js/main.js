@@ -38,8 +38,8 @@ function checkStringLength (string, length) {
 const getRandomArrayElement = (elements) => elements[getRandomPositiveInteger(0, elements.length - 1)];
 
 const createPicture = (item, index) => ({
-  id: index+1,
-  url: `photos/${index+1}.jpg`,
+  id: index + 1,
+  url: `photos/${index + 1}.jpg`,
   description:  getRandomArrayElement(descriptions),
   likes: getRandomPositiveInteger(LikesCount.MIN, LikesCount.MAX),
   comments: getRandomPositiveInteger(CommentsAmount.MIN, CommentsAmount.MAX),
