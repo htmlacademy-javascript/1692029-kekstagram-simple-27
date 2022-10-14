@@ -1,12 +1,12 @@
-const PHOTOCOUNT = 25;
+const PHOTO_COUNT = 25;
 const LikesCount = {
-  MIN:15,
-  MAX:200,
+  MIN: 15,
+  MAX: 200,
 };
 
 const CommentsAmount = {
-  MIN:0,
-  MAX:0,
+  MIN: 0,
+  MAX: 200,
 };
 
 const descriptions = [
@@ -32,21 +32,20 @@ function getRandomPositiveInteger(a, b) {
 }
 
 function checkStringLength (string, length) {
-  const result = string.length <= length;
-  return result;
+  return string.length <= length;
 }
 
 const getRandomArrayElement = (elements) => elements[getRandomPositiveInteger(0, elements.length - 1)];
 
-const CreatePicture = (index) => ({
-  id: index,
-  url: `photos/${index}.jpg`,
+const createPicture = (item, index) => ({
+  id: index+1,
+  url: `photos/${index+1}.jpg`,
   description:  getRandomArrayElement(descriptions),
-  likes: getRandomArrayElement(LikesCount.MIN, LikesCount.MAX),
-  comments: getRandomArrayElement(CommentsAmount.MIN, CommentsAmount.MAX),
+  likes: getRandomPositiveInteger(LikesCount.MIN, LikesCount.MAX),
+  comments: getRandomPositiveInteger(CommentsAmount.MIN, CommentsAmount.MAX),
 });
 
-const getPictures = Array.from({length: PHOTOCOUNT}, CreatePicture);
+const getPictures = () => Array.from({length: PHOTO_COUNT}, createPicture);
 
 
 checkStringLength ('', 200);
