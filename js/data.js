@@ -1,4 +1,4 @@
-import {getRandomPositiveInteger,getRandomArrayElement} from './util.js';
+import {getRandomPositiveInteger,getRandomArrayElement} from './utils';
 
 const PHOTO_COUNT = 25;
 const LikesCount = {
